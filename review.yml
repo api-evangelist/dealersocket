@@ -1,0 +1,97 @@
+aid: dealersocket
+name: DealerSocket
+review:
+  question: Does DealerSocket expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-10'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. DealerSocket's integration surface, as
+    described on its public integrations page, is HTTP request/response and
+    file/message forwarding (XML or email for lead forwarding, direct-post style
+    inbound calls for activity and CTI, one-way deal push to the DMS). There is
+    no publicly documented server-push transport (WebSocket or SSE) on
+    DealerSocket's own API to model. The APIs themselves are partner- and
+    certification-gated, so no full endpoint surface is published to model
+    either.
+findings:
+  summary: |
+    DealerSocket does not publish a documented public WebSocket API. DealerSocket
+    is an automotive dealership CRM and Dealer Management System (DMS) platform,
+    a Solera company (acquired 2021). It exposes a set of inbound and outbound
+    integration APIs - Lead Forwarding Service, Deal Push (Basic/Advanced),
+    Customer Update, Activity Insert/Update, EntitySync, CTI Direct Post, Call
+    Vendor Direct Post, Event Update, and Work Note Insert - but these are
+    delivered through DealerSocket's Certified Partners program (launched 2013,
+    500-plus integration points) and are application-, contract-, and
+    certification-gated. There is no public developer portal, no published
+    authentication reference, and no public endpoint or base-URL documentation.
+    The public integrations page (dealersocket.com/apis/) names the integrations
+    but documents no realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint.
+  accessModel: |
+    Partner / certification-gated. API access is obtained by becoming a
+    DealerSocket Certified Partner rather than through a self-serve developer
+    signup. DealerSocket also participates in DMS third-party access programs
+    (for example ADP's Third-Party Access Program at the Managed Bi-Directional
+    Integration level) for data exchange with dealer management systems.
+    Pricing is not public and is enterprise/contract (contact sales;
+    888.655.1435 / "Speak with an expert").
+  openSource: |
+    No open-source components identified. DealerSocket is closed, commercial
+    dealership SaaS. No public GitHub organization for the product was found.
+  transports:
+    - protocol: REST / HTTP
+      scheme: https
+      documented: false
+      note: >-
+        Inbound integrations use HTTP direct-post style calls (CTI Direct Post,
+        Customer Update, Activity Insert/Update, EntitySync, work-note/event
+        updates). Exact endpoints, base URL, and auth are gated and not
+        published.
+    - protocol: File / Message forwarding
+      scheme: https
+      documented: false
+      note: >-
+        Lead Forwarding Service forwards lead data as XML or email; Deal Push
+        performs one-way pushes of deal data to a DMS. Not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in DealerSocket's public materials as of the review date.
+  endpointsModeled:
+    - Lead Forwarding Service (outbound lead data as XML or email)
+    - Deal Push Basic (one-way basic deal data push to DMS)
+    - Deal Push Advanced (deal push including desking and financial data)
+    - Customer Update (inbound customer record update)
+    - Activity Insert/Update (inbound activity/to-do records)
+    - EntitySync (link website visitor data to existing customers)
+    - CTI Direct Post (inbound/outbound call logging)
+    - Call Vendor Direct Post Work Note Update (call follow-up and transcripts)
+    - Event Update (sales/service event work-note updates)
+    - Work Note Insert (append notes to open events)
+  endpointsConfirmedRest: []
+sources:
+  - url: https://dealersocket.com/apis/
+    type: Documentation
+    note: Public inbound/outbound integrations listing; names integrations but no endpoints, auth, base URL, or WebSocket.
+  - url: https://dealersocket.com/resources/certified-partners/
+    type: Documentation
+    note: Certified Partners directory; API access is via the partner program, not self-serve.
+  - url: https://www.solera.com/solutions/dealers/dealersocket/
+    type: Documentation
+    note: Solera product page confirming DealerSocket is a Solera Vehicle Solutions brand.
+  - url: https://www.linkedin.com/company/dealersocket
+    type: LinkedIn
+    note: Company page ("Solera | DealerSocket").
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and DealerSocket's public API surface
+    is partner/certification-gated HTTP request/response plus lead/deal
+    forwarding. No AsyncAPI document was created because there is no documented
+    server-push transport on DealerSocket's own API, and no full endpoint
+    surface is publicly published to model. The apis.yml entries are modeled
+    from the public integrations page and flagged endpointsModeled.

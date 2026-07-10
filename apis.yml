@@ -1,0 +1,130 @@
+aid: dealersocket
+url: https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/apis.yml
+name: DealerSocket
+kind: company
+description: >-
+  DealerSocket is an automotive dealership CRM and Dealer Management System
+  (DMS) software platform for franchise and independent auto dealers, covering
+  customer relationship management, inventory management, websites, digital
+  marketing, and desking/deals. DealerSocket is a Solera company (acquired 2021;
+  part of Solera's Vehicle Solutions line of business). DealerSocket exposes a
+  set of inbound and outbound integration APIs - lead forwarding, deal push to
+  the DMS, customer updates, activity and CTI/call logging - but access is not
+  self-serve. It is delivered through DealerSocket's Certified Partners program
+  (launched 2013, 500-plus integration points) and is application-, contract-,
+  and certification-gated. There is no public developer portal, no published
+  authentication reference, and no public endpoint or base-URL documentation;
+  the logical APIs below are modeled from DealerSocket's public integrations
+  page rather than a self-serve API reference.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Automotive
+- Dealership
+- CRM
+- DMS
+- Leads
+- Inventory
+- Deals
+- Solera
+- Partner API
+- Certified Partners
+created: '2026-07-10'
+modified: '2026-07-10'
+specificationVersion: '0.19'
+apis:
+- aid: dealersocket:dealersocket-crm-leads-api
+  name: DealerSocket CRM & Leads API
+  tags:
+  - CRM
+  - Leads
+  - Activities
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://dealersocket.com/apis/
+  endpointsModeled: true
+  properties:
+  - url: https://dealersocket.com/apis/
+    type: Documentation
+  description: >-
+    Lead and CRM integration surface. Includes the outbound Lead Forwarding
+    Service (forwards incoming and processed dealership lead data to a
+    third-party vendor as XML or email), inbound Activity Insert/Update (create
+    or update activity/to-do records such as calls, appointments, work notes,
+    and web leads), and EntitySync (link website visitor data to existing
+    customer records). Access is partner- and certification-gated; specific
+    endpoints, base URL, and authentication are not publicly documented, so this
+    entry is modeled from DealerSocket's public integrations listing.
+- aid: dealersocket:dealersocket-customers-api
+  name: DealerSocket Customers API
+  tags:
+  - Customers
+  - CRM
+  - Contacts
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://dealersocket.com/apis/
+  endpointsModeled: true
+  properties:
+  - url: https://dealersocket.com/apis/
+    type: Documentation
+  description: >-
+    Inbound customer integration surface. The Customer Update integration
+    modifies customer records in DealerSocket CRM (with insert of not-yet-found
+    customers noted as forthcoming on the public integrations page). Used by
+    certified third parties to keep dealership customer data in sync. Access is
+    partner- and certification-gated; endpoints, base URL, and authentication
+    are not publicly documented, so this entry is modeled from DealerSocket's
+    public integrations listing.
+- aid: dealersocket:dealersocket-deals-api
+  name: DealerSocket Deals & Desking API
+  tags:
+  - Deals
+  - Desking
+  - DMS
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://dealersocket.com/apis/
+  endpointsModeled: true
+  properties:
+  - url: https://dealersocket.com/apis/
+    type: Documentation
+  description: >-
+    Outbound deal integration surface. Deal Push Basic performs a one-way push
+    of basic deal data (customer, co-buyer, salesperson, and vehicle of
+    interest) to the DMS, and Deal Push Advanced extends it with desking and
+    financial information. Used to move showroom/desking deals from DealerSocket
+    into a dealer management system. Access is partner- and certification-gated;
+    endpoints, base URL, and authentication are not publicly documented, so this
+    entry is modeled from DealerSocket's public integrations listing.
+- aid: dealersocket:dealersocket-cti-activity-api
+  name: DealerSocket CTI & Activity Logging API
+  tags:
+  - CTI
+  - Telephony
+  - Work Notes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://dealersocket.com/apis/
+  endpointsModeled: true
+  properties:
+  - url: https://dealersocket.com/apis/
+    type: Documentation
+  description: >-
+    Inbound call-tracking and activity-logging surface. CTI Direct Post logs
+    inbound and outbound call information for activity tracking, Call Vendor
+    Direct Post Work Note Update appends call follow-up data and transcripts,
+    Event Update updates sales and service event work notes, and Work Note
+    Insert appends notes to open events. Used by certified telephony and
+    call-analytics vendors. Access is partner- and certification-gated;
+    endpoints, base URL, and authentication are not publicly documented, so this
+    entry is modeled from DealerSocket's public integrations listing.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/dealersocket
+- type: Website
+  url: https://dealersocket.com
+- type: Documentation
+  url: https://dealersocket.com/apis/
+- type: CertifiedPartners
+  url: https://dealersocket.com/resources/certified-partners/
+- type: ParentCompany
+  url: https://www.solera.com/solutions/dealers/dealersocket/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
