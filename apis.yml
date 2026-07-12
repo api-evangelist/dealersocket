@@ -115,6 +115,8 @@ apis:
     endpoints, base URL, and authentication are not publicly documented, so this
     entry is modeled from DealerSocket's public integrations listing.
 common:
+- type: DomainSecurity
+  url: security/dealersocket-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/dealersocket
 - type: Website
