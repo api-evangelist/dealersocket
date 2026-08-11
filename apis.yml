@@ -40,7 +40,7 @@ tags:
 - Partner API
 - Certified Partners
 created: '2026-07-10'
-modified: '2026-07-10'
+modified: '2026-08-10'
 specificationVersion: '0.19'
 apis:
 - aid: dealersocket:dealersocket-crm-leads-api
@@ -51,6 +51,7 @@ apis:
   - Activities
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dealersocket.com/apis/
+  baseURL: https://api.dealersocket.com
   endpointsModeled: true
   properties:
   - url: https://dealersocket.com/apis/
@@ -72,6 +73,7 @@ apis:
   - Contacts
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dealersocket.com/apis/
+  baseURL: https://api.dealersocket.com
   endpointsModeled: true
   properties:
   - url: https://dealersocket.com/apis/
@@ -92,6 +94,7 @@ apis:
   - DMS
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dealersocket.com/apis/
+  baseURL: https://api.dealersocket.com
   endpointsModeled: true
   properties:
   - url: https://dealersocket.com/apis/
@@ -112,6 +115,7 @@ apis:
   - Work Notes
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://dealersocket.com/apis/
+  baseURL: https://api.dealersocket.com
   endpointsModeled: true
   properties:
   - url: https://dealersocket.com/apis/
@@ -138,6 +142,39 @@ common:
   url: https://dealersocket.com/resources/certified-partners/
 - type: ParentCompany
   url: https://www.solera.com/solutions/dealers/dealersocket/
+- type: Lifecycle
+  url: lifecycle/dealersocket-lifecycle.yml
+- type: StatusPage
+  url: https://status.dealersocket.com/
+- type: Webhooks
+  url: asyncapi/dealersocket-outbound-webhooks.yml
+- type: Conventions
+  url: conventions/dealersocket-conventions.yml
+- type: Packages
+  url: packages/dealersocket-packages.yml
+- type: Plans
+  url: plans/dealersocket-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dealersocket-rate-limits.yml
+- type: LLMsTxt
+  url: llms/dealersocket-llms.txt
+- type: Support
+  url: https://dealersocket.com/support/
+- type: Blog
+  url: https://dealersocket.com/resources/dealersocket-blog/
+- type: BlogRSS
+  url: https://dealersocket.com/feed/
+- type: TermsOfService
+  url: https://dealersocket.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://www.solera.com/privacy-center/
+- type: Login
+  url: https://www.dealer.solera.com/login/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-10'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1

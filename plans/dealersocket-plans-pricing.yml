@@ -1,0 +1,36 @@
+generated: '2026-08-10'
+method: searched
+source: https://dealersocket.com/speakwithanexpert/
+plan_count: 0
+currency: null
+billing_model: contact-sales
+self_serve: false
+free_tier: false
+note: >-
+  DealerSocket publishes no pricing of any kind - not for the dealership software
+  and not for API/integration access. There is no /pricing page (404), no plan
+  table, no per-call or per-integration rate card, and no self-serve checkout.
+  Every commercial path on the site terminates in a sales contact: "Speak with an
+  expert" or the sales line 888.655.1435. API access specifically is priced inside
+  the Certified Partners agreement, which is negotiated per partner and never
+  published. This is an honest zero, recorded rather than omitted.
+plans: []
+evidence:
+- url: https://dealersocket.com/pricing/
+  status: 404
+- url: https://dealersocket.com/speakwithanexpert/
+  status: 200
+- url: https://dealersocket.com/apis/
+  status: 200
+  note: names the inbound/outbound integrations, states no price
+- url: https://dealersocket.com/resources/certified-partners/
+  status: 200
+  note: partner directory; no fee schedule or program cost published
+sales_contacts:
+- type: phone
+  value: '888.655.1435'
+  source: https://dealersocket.com/apis/
+- type: form
+  value: https://dealersocket.com/speakwithanexpert/
+- type: form
+  value: https://dealersocket.com/contact-us/

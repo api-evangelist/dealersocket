@@ -1,0 +1,46 @@
+generated: '2026-08-10'
+method: searched
+source: https://dealersocket.com/apis/
+limit_count: 0
+headers_documented: false
+exhaustion_status: null
+retry_after: null
+note: >-
+  DealerSocket documents no rate limits. The public integrations page describes
+  what each inbound/outbound integration does but publishes no quota, no window,
+  no burst allowance, and no throttling contract. No RateLimit-*, X-RateLimit-* or
+  Retry-After header could be observed either: the production API host
+  api.dealersocket.com answers anonymous GET at the root with 405 (Allow:
+  POST,PUT) and returns no rate-limit headers, and every request-bearing route is
+  authentication-gated, so no live limit signal is observable without partner
+  credentials. Limits, if any, are set in the Certified Partners agreement. An
+  honest zero.
+limits: []
+observed_response_headers:
+  url: https://api.dealersocket.com/
+  http_status: 405
+  headers:
+  - Cache-Control
+  - Pragma
+  - Allow
+  - Content-Type
+  - Expires
+  - Server
+  - X-AspNet-Version
+  - p3p
+  - X-Server
+  - X-Box
+  - Date
+  - Content-Length
+  rate_limit_headers_present: false
+  note: >-
+    Only a 429-adjacent absence, recorded from a real response. The only crawler
+    throttling DealerSocket publishes anywhere is a `Crawl-delay: 10` directive in
+    https://dealersocket.com/robots.txt, which governs web crawling, not the API.
+evidence:
+- url: https://dealersocket.com/apis/
+  status: 200
+- url: https://api.dealersocket.com/
+  status: 405
+- url: https://dealersocket.com/robots.txt
+  status: 200

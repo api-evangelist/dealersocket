@@ -1,0 +1,88 @@
+generated: '2026-08-10'
+method: searched
+source: https://dealersocket.com/apis/
+spec_type: none
+asyncapi_published: false
+note: >-
+  DealerSocket publishes NO AsyncAPI document - /asyncapi.yaml and every
+  /.well-known/ path 404 on every host, and there is no event catalog, no
+  subscription API, and no GitHub org to harvest one from. What DealerSocket DOES
+  advertise publicly is an outbound, provider-initiated push surface: the
+  "Outbound APIs" section of dealersocket.com/apis/ describes DealerSocket sending
+  dealership data to a third-party endpoint on the dealership's behalf. That is a
+  webhook-class surface, so this file captures the catalog and a `Webhooks`
+  pointer is emitted. NO `AsyncAPI` pointer is emitted, because no AsyncAPI
+  document exists.
+delivery:
+  direction: outbound (DealerSocket -> partner endpoint)
+  trigger: dealership user action or lead arrival
+  transport: HTTP push / email
+  payload_formats: [XML, email]
+  subscription_model: contract
+  subscription_note: >-
+    Destinations are configured by DealerSocket during partner certification, not
+    by a self-serve subscription endpoint. There is no public endpoint to register
+    a callback URL, no signing/verification scheme published, no retry or delivery
+    guarantee stated, and no payload schema published for any of the events below.
+  signature_verification: null
+  retry_policy: null
+  payload_schema_published: false
+webhooks:
+- name: Lead Forwarding Service
+  category: leads
+  direction: outbound
+  description: >-
+    Forwards incoming and processed lead data from a dealership to a third-party
+    vendor for fulfillment.
+  payload_formats: [XML, email]
+  api: dealersocket:dealersocket-crm-leads-api
+  source: https://dealersocket.com/apis/
+- name: Deal Push Basic
+  category: deals
+  direction: outbound
+  description: >-
+    One-way push of basic deal data to the DMS, initiated by dealership users.
+    Carries customer, co-buyer, salesperson, and vehicle of interest.
+  payload_formats: [unknown]
+  api: dealersocket:dealersocket-deals-api
+  source: https://dealersocket.com/apis/
+- name: Deal Push Advanced
+  category: deals
+  direction: outbound
+  description: Adds desking and financial data to the Deal Push Basic payload.
+  payload_formats: [unknown]
+  api: dealersocket:dealersocket-deals-api
+  source: https://dealersocket.com/apis/
+inbound_counterparts:
+  note: >-
+    For completeness, the inbound half of the same integration surface is
+    request/response direct-post, not events, and is modeled in apis.yml rather
+    than here: Activity Insert/Update, Call Vendor Direct Post Work Note Update,
+    CTI Direct Post, Customer Update, EntitySync, Event Update, Work Note Insert.
+status_events:
+  note: >-
+    A separate, genuinely machine-readable event stream does exist for platform
+    health only - the Atlassian Statuspage incident feeds at
+    https://status.dealersocket.com/history.atom and /history.rss (both 200). That
+    is operational status, not business events, and is recorded in
+    lifecycle/dealersocket-lifecycle.yml.
+coverage:
+  webhooks_advertised: 3
+  payload_schemas_published: 0
+  asyncapi_documents: 0
+probes:
+- url: https://dealersocket.com/asyncapi.yaml
+  status: 404
+- url: https://api.dealersocket.com/.well-known/api-catalog
+  status: 404
+- url: https://dealersocket.com/apis/
+  status: 200
+x-evidence:
+  fetched: '2026-08-10'
+  url: https://dealersocket.com/apis/
+  http_status: 200
+  content_type: text/html; charset=UTF-8
+  quote: >-
+    "Lead Forwarding Service - Forwards incoming/processed lead data from a
+    dealership to a third-party vendor for fulfillment. This lead data is
+    forwarded as either XML or email."

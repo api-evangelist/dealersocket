@@ -1,0 +1,72 @@
+# DealerSocket
+
+> DealerSocket is an automotive dealership CRM and Dealer Management System (DMS)
+> software platform for franchise and independent auto dealers, covering CRM,
+> inventory management, websites and digital marketing, digital retail, and
+> desking/deals. DealerSocket is a Solera company (acquired 2021, Vehicle
+> Solutions line of business). Its integration APIs are real but are NOT
+> self-serve: access is granted through the Certified Partners program
+> (launched 2013) and is application-, contract-, and certification-gated.
+
+## What an agent needs to know first
+
+- There is **no public developer portal, no API reference, and no machine-readable
+  contract** — no OpenAPI, no AsyncAPI, no GraphQL, no WSDL — at any DealerSocket
+  host. Probed 2026-08-10.
+- There is **no self-serve signup and no published pricing** for API access. Every
+  path to credentials runs through a sales conversation and a partner agreement.
+- The production API host is `https://api.dealersocket.com` (verified live: root
+  returns HTTP 405 with `Allow: POST,PUT`, served by `WEBAPI.us.slc.prod.dealersocket.net`).
+  Every route on it is authentication-gated; nothing answers anonymously.
+- The integration style is **HTTP "direct post"** — DealerSocket's own term — not a
+  resource-oriented CRUD API.
+- Do not attempt to call these APIs without partner credentials. Start at
+  https://dealersocket.com/apis/ and https://dealersocket.com/speakwithanexpert/.
+
+## APIs
+
+- [DealerSocket CRM & Leads API](https://dealersocket.com/apis/): Lead Forwarding Service (outbound XML or email), Activity Insert/Update (calls, appointments, work notes, web leads), EntitySync (link website visitor data to an existing customer record).
+- [DealerSocket Customers API](https://dealersocket.com/apis/): Customer Update — modify customer records in DealerSocket CRM; insert of not-yet-found customers noted as forthcoming.
+- [DealerSocket Deals & Desking API](https://dealersocket.com/apis/): Deal Push Basic (customer, co-buyer, salesperson, vehicle of interest) and Deal Push Advanced (adds desking and financial data), one-way push to the DMS.
+- [DealerSocket CTI & Activity Logging API](https://dealersocket.com/apis/): CTI Direct Post, Call Vendor Direct Post Work Note Update, Event Update, Work Note Insert.
+
+## Docs
+
+- [Inbound & Outbound APIs](https://dealersocket.com/apis/): the only public description of the integration surface.
+- [Certified Partners](https://dealersocket.com/resources/certified-partners/): the partner directory and the gate to API access.
+- [OEM programs](https://dealersocket.com/resources/oem-programs/)
+- [Support](https://dealersocket.com/support/)
+- [Blog](https://dealersocket.com/resources/dealersocket-blog/) ([RSS](https://dealersocket.com/feed/))
+
+## Operations
+
+- [Status page](https://status.dealersocket.com/) — Atlassian Statuspage covering CRM, DMS, Inventory and Websites products.
+- [Status API (summary)](https://status.dealersocket.com/api/v2/summary.json) — JSON, unauthenticated.
+- [Status API (status)](https://status.dealersocket.com/api/v2/status.json) — JSON, unauthenticated.
+- [Status API (components)](https://status.dealersocket.com/api/v2/components.json) — JSON, unauthenticated.
+- [Incident history](https://status.dealersocket.com/history.atom) — Atom feed.
+
+## Commercial
+
+- [Speak with an expert](https://dealersocket.com/speakwithanexpert/) — the only route to API access. Sales: 888.655.1435.
+- [Login](https://www.dealer.solera.com/login/)
+- [Terms of Use](https://dealersocket.com/terms-conditions/)
+- [Privacy Center](https://www.solera.com/privacy-center/)
+- Pricing: not published. No plans, no rate card, no free tier.
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/apis.yml)
+- [Outbound webhook catalog](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/asyncapi/dealersocket-outbound-webhooks.yml)
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/conventions/dealersocket-conventions.yml)
+- [Lifecycle & status](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/lifecycle/dealersocket-lifecycle.yml)
+- [Packages](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/packages/dealersocket-packages.yml)
+- [Plans & pricing](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/plans/dealersocket-plans-pricing.yml)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/rate-limits/dealersocket-rate-limits.yml)
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/well-known/dealersocket-well-known.yml)
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/security/dealersocket-domain-security.yml)
+
+---
+generated: 2026-08-10
+method: generated
+source: apis.yml + repo artifacts; /llms.txt returned 404 on dealersocket.com, api.dealersocket.com, idms.dealersocket.com and inventory.dealersocket.com

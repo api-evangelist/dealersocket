@@ -1,0 +1,78 @@
+generated: '2026-08-10'
+method: searched
+source: https://status.dealersocket.com/
+status_page: https://status.dealersocket.com/
+status_page_detail:
+  provider: Atlassian Statuspage
+  page_id: qfs8b1frp9p1
+  page_name: DealerSocket Status Page
+  time_zone: America/Los_Angeles
+  machine_readable: true
+  endpoints:
+  - url: https://status.dealersocket.com/api/v2/summary.json
+    status: 200
+    content_type: application/json
+  - url: https://status.dealersocket.com/api/v2/status.json
+    status: 200
+    content_type: application/json
+  - url: https://status.dealersocket.com/api/v2/components.json
+    status: 200
+    content_type: application/json
+  - url: https://status.dealersocket.com/history.atom
+    status: 200
+    content_type: application/atom+xml
+  - url: https://status.dealersocket.com/history.rss
+    status: 200
+    content_type: application/rss+xml
+  components:
+  - group: CRM
+    items: [CRM, Mobile CRM Application, Revenue Radar]
+  - group: DMS
+    items: [Auto/Mate, AutoStar, FEX, IDMS]
+  - group: Inventory
+    items: [AAX, Inventory+]
+  - group: Websites
+    items: [DealerFire - Engine5, DealerFire - Engine6, DealerFire - Ignite, PrecisePrice]
+  note: >-
+    The status page covers the DEALER-FACING PRODUCTS (CRM, DMS, Inventory,
+    Websites). It does not carry a component for the partner integration API
+    surface itself, so an API outage is only observable through the product
+    component it sits behind.
+versioning:
+  scheme: unknown
+  current: null
+  docs: null
+  note: >-
+    No public versioning policy. The integrations page at dealersocket.com/apis/
+    names the integrations but publishes no version identifier, no URI version
+    segment, and no version header contract. The production API host
+    api.dealersocket.com exposes no version-bearing route that answers
+    anonymously.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header contract, and no
+    end-of-life schedule is published. Integration change management runs through
+    the Certified Partners contract, not a public policy page. NO Deprecation
+    pointer is emitted in apis.yml - the check asserts the provider publishes a
+    policy, and DealerSocket does not.
+sla:
+  url: null
+  uptime_target: null
+  note: SLA terms are contractual (Certified Partners agreement); nothing published.
+deprecated_operations: []
+probes:
+- url: https://dealersocket.com/release-notes/
+  status: 404
+- url: https://dealersocket.com/changelog/
+  status: 404
+- url: https://dealersocket.com/roadmap/
+  status: 404
+- url: https://status.dealersocket.com/
+  status: 200
+x-evidence:
+  fetched: '2026-08-10'
+  url: https://status.dealersocket.com/api/v2/summary.json
+  http_status: 200
+  content_type: application/json

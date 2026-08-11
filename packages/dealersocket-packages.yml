@@ -1,0 +1,135 @@
+generated: '2026-08-10'
+method: searched
+source: >-
+  Registry searches against npm, PyPI, RubyGems, NuGet, Packagist and crates.io,
+  plus a GitHub code/repo search, on 2026-08-10.
+summary:
+  official_client_sdks: 0
+  official_packages: 4
+  note: >-
+    DealerSocket publishes NO client SDK for its partner integration APIs, in any
+    language. The only first-party packages that exist are four ASP.NET internal
+    platform framework libraries pushed to NuGet in 2014 - server-side scaffolding
+    for building DealerSocket's own services, not client libraries a partner
+    integrates with. Because there is no official client library, NO `SDKs`
+    pointer is emitted in apis.yml; only `Packages`. Every one of these packages
+    is more than a decade stale and points at a Bitbucket project URL, which is a
+    strong abandonment signal for the published-package surface.
+packages:
+- language: dotnet
+  registry: nuget
+  name: Platform.SharedKernel
+  url: https://www.nuget.org/packages/Platform.SharedKernel
+  install: dotnet add package Platform.SharedKernel
+  official: true
+  kind: internal-framework
+  client_sdk: false
+  version: 1.0.1.2
+  published: '2014-08-07'
+  authors: MMartin
+  project_url: https://bitbucket.org/dealersocket/platform.sharedkernel
+  description: Provide a shared repository for the API's of the DealerSocket Platform
+  note: >-
+    Server-side shared kernel for DealerSocket's own platform services. Not a
+    client library. Last published 2014-08-07; the linked Bitbucket project is not
+    publicly reachable.
+- language: dotnet
+  registry: nuget
+  name: Platform.SharedKernel.Api
+  url: https://www.nuget.org/packages/Platform.SharedKernel.Api
+  install: dotnet add package Platform.SharedKernel.Api
+  official: true
+  kind: internal-framework
+  client_sdk: false
+  version: 1.0.1.2
+  published: '2014-08-08'
+  authors: MMartin
+  project_url: https://bitbucket.org/dealersocket/platform.sharedkernel
+  description: >-
+    Provide an OWIN-based framework in a shared repository for the API's of the
+    DealerSocket Platform
+  note: >-
+    OWIN server framework, consistent with the Microsoft-IIS/8.5 + ASP.NET
+    4.0.30319 stack observed live on api.dealersocket.com.
+- language: dotnet
+  registry: nuget
+  name: Platform.SharedKernel.Data
+  url: https://www.nuget.org/packages/Platform.SharedKernel.Data
+  install: dotnet add package Platform.SharedKernel.Data
+  official: true
+  kind: internal-framework
+  client_sdk: false
+  version: 1.0.1.2
+  published: '2014-08-07'
+  authors: MMartin
+  project_url: https://bitbucket.org/dealersocket/platform.sharedkernel
+  description: >-
+    Provide an EF-based framework in a shared repository for the API's of the
+    DealerSocket Platform
+- language: dotnet
+  registry: nuget
+  name: Platform.TestingFramework
+  url: https://www.nuget.org/packages/Platform.TestingFramework
+  install: dotnet add package Platform.TestingFramework
+  official: true
+  kind: internal-framework
+  client_sdk: false
+  version: 1.0.1.3
+  published: null
+  authors: MMartin
+  project_url: https://bitbucket.org/dealersocket/platform.testingframework
+  description: Useful classes for testing bounded contexts of the DealerSocket Platform
+  note: >-
+    NuGet returns a placeholder publish timestamp (1900-01-01) for this package,
+    so no honest publication date can be recorded. Recorded as null rather than
+    guessed.
+unofficial:
+- language: javascript
+  registry: npm
+  name: generator-mock-protractor-tests
+  url: https://www.npmjs.com/package/generator-mock-protractor-tests
+  official: false
+  client_sdk: false
+  version: 0.0.0
+  published: '2016-04-07'
+  repository: https://github.com/dealersocket/generator-mock-protractor-tests
+  note: >-
+    Published from a DealerSocket-named GitHub org and references "blackbird crm"
+    (a DealerSocket internal codename), but the org github.com/dealersocket now
+    returns 404 and the repo is gone, so first-party status cannot be verified.
+    A test-scaffolding generator, not a client library.
+- language: javascript
+  registry: npm
+  name: '@nemvts/react-scripts'
+  url: https://www.npmjs.com/package/@nemvts/react-scripts
+  official: false
+  client_sdk: false
+  version: 3.3.7
+  published: '2020-02-11'
+  repository: https://github.com/nemvts/create-react-app
+  note: >-
+    "DealerSocket configuration and scripts for Create React App" published under
+    an unaffiliated personal npm scope. Front-end build tooling, unrelated to the
+    integration APIs. Sibling packages @nemvts/cra-template-dealersocket-typescript
+    (1.0.1, 2020-02-06) and @nemvts/cra-dealersocket-template-typescript (1.0.0,
+    2020-02-06) are the same shape.
+- language: ruby
+  registry: none
+  name: dealersocket-client
+  url: https://github.com/t2modus/dealersocket-client
+  official: false
+  client_sdk: true
+  version: null
+  published: null
+  note: >-
+    Third-party Ruby client for the DealerSocket API, source-only. Not published
+    to RubyGems - rubygems.org/api/v1/gems/dealersocket-client.json returns 404 -
+    so no version or publication date exists to record.
+registries_checked:
+- {registry: npm, query: dealersocket, first_party_client_sdk: false}
+- {registry: pypi, query: dealersocket, status: 404}
+- {registry: rubygems, query: dealersocket, results: 0}
+- {registry: nuget, query: dealersocket, results: 4, first_party_client_sdk: false}
+- {registry: packagist, query: dealersocket, results: 0}
+- {registry: crates.io, query: dealersocket, results: 0}
+- {registry: 'github (org)', query: 'github.com/dealersocket', status: 404}

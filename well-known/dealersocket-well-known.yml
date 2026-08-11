@@ -1,0 +1,90 @@
+generated: '2026-08-10'
+method: probed
+source: live GET probes of /.well-known/* on every DealerSocket host known to the profile
+note: >-
+  Every /.well-known/ path probed on every DealerSocket host returned 404 (or a
+  500 on the IDMS load balancer). No document was served on any host, so NO
+  WellKnown and NO SecurityTxt pointer is emitted in apis.yml - this file records
+  a verified ABSENCE, not a presence. dealersocket.com answers 404 with a full
+  57KB WordPress 404 page (an HTML shell, not a document); api.dealersocket.com
+  answers with an IIS 8.5 detailed 404. Neither is a served discovery document.
+hosts:
+- host: https://api.dealersocket.com
+  role: production API host (probed; see security/dealersocket-domain-security.yml)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://dealersocket.com
+  role: corporate website / public integrations page
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+    note: HTML 404 page (WordPress), not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    note: HTML 404 page (WordPress), not a document
+  - path: /.well-known/api-catalog
+    status: 404
+    note: HTML 404 page (WordPress), not a document
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://idms.dealersocket.com
+  role: IDMS product host (AWS ALB)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 500
+  - path: /.well-known/oauth-authorization-server
+    status: 500
+  - path: /.well-known/api-catalog
+    status: 500
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://inventory.dealersocket.com
+  role: Inventory+ product host (CloudFront)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+summary:
+  hosts_probed: 4
+  documents_found: 0
+  security_txt: false
+  agent_card: false
+  openid_configuration: false
+x-evidence:
+  fetched: '2026-08-10'
+  user_agent_note: >-
+    dealersocket.com returns 403 to a default curl User-Agent and 200 to a browser
+    User-Agent; all probes above were run with a browser User-Agent so a bot block
+    is not being mistaken for an absence.
