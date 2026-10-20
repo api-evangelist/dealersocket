@@ -1,8 +1,8 @@
 generated: '2026-08-10'
 method: searched
 source: https://dealersocket.com/speakwithanexpert/
+name: DealerSocket API Plans
 plan_count: 0
-currency: null
 billing_model: contact-sales
 self_serve: false
 free_tier: false
@@ -34,3 +34,8 @@ sales_contacts:
   value: https://dealersocket.com/speakwithanexpert/
 - type: form
   value: https://dealersocket.com/contact-us/
+audience: business-product
+pricing_basis: negotiated
+published: false
+delivery:
+  delivery: managed

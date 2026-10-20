@@ -1,7 +1,11 @@
 aid: dealersocket
+
 url: https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/apis.yml
+
 name: DealerSocket
+
 kind: company
+
 description: >-
   DealerSocket is an automotive dealership CRM and Dealer Management System
   (DMS) software platform for franchise and independent auto dealers, covering
@@ -16,6 +20,7 @@ description: >-
   authentication reference, and no public endpoint or base-URL documentation;
   the logical APIs below are modeled from DealerSocket's public integrations
   page rather than a self-serve API reference.
+
 deliveryModel:
   model: saas
   open_source: false
@@ -27,6 +32,7 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -38,7 +44,9 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
+
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dealersocket.png
+
 tags:
 - Automotive
 - Dealership
@@ -50,9 +58,59 @@ tags:
 - Solera
 - Partner API
 - Certified Partners
+
 created: '2026-07-10'
+
 modified: '2026-08-10'
+
 specificationVersion: '0.23'
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+
+common:
+- type: Hosts
+  url: hosts/dealersocket-hosts.yml
+- type: Vendors
+  url: vendors/dealersocket-vendors.yml
+- type: DomainSecurity
+  url: security/dealersocket-domain-security.yml
+- type: Website
+  url: https://dealersocket.com
+- type: Documentation
+  url: https://dealersocket.com/apis/
+- type: CertifiedPartners
+  url: https://dealersocket.com/resources/certified-partners/
+- type: ParentCompany
+  url: https://www.solera.com/solutions/dealers/dealersocket/
+- type: Lifecycle
+  url: lifecycle/dealersocket-lifecycle.yml
+- type: StatusPage
+  url: https://status.dealersocket.com/
+- type: Webhooks
+  url: asyncapi/dealersocket-outbound-webhooks.yml
+- type: Conventions
+  url: conventions/dealersocket-conventions.yml
+- type: Plans
+  url: plans/dealersocket-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dealersocket-rate-limits.yml
+- type: Support
+  url: https://dealersocket.com/support/
+- type: Blog
+  url: https://dealersocket.com/resources/dealersocket-blog/
+- type: BlogRSS
+  url: https://dealersocket.com/feed/
+- type: TermsOfService
+  url: https://dealersocket.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://www.solera.com/privacy-center/
+- type: Login
+  url: https://www.dealer.solera.com/login/
+- type: Newsroom
+  url: https://dealersocket.com/news/
+
 apis:
 - aid: dealersocket:dealersocket-crm-leads-api
   name: DealerSocket CRM & Leads API
@@ -140,52 +198,20 @@ apis:
     call-analytics vendors. Access is partner- and certification-gated;
     endpoints, base URL, and authentication are not publicly documented, so this
     entry is modeled from DealerSocket's public integrations listing.
-common:
-- type: DomainSecurity
-  url: security/dealersocket-domain-security.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/dealersocket
-- type: Website
-  url: https://dealersocket.com
-- type: Documentation
-  url: https://dealersocket.com/apis/
-- type: CertifiedPartners
-  url: https://dealersocket.com/resources/certified-partners/
-- type: ParentCompany
-  url: https://www.solera.com/solutions/dealers/dealersocket/
-- type: Lifecycle
-  url: lifecycle/dealersocket-lifecycle.yml
-- type: StatusPage
-  url: https://status.dealersocket.com/
-- type: Webhooks
-  url: asyncapi/dealersocket-outbound-webhooks.yml
-- type: Conventions
-  url: conventions/dealersocket-conventions.yml
-- type: Packages
-  url: packages/dealersocket-packages.yml
-- type: Plans
-  url: plans/dealersocket-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/dealersocket-rate-limits.yml
-- type: LLMsTxt
-  url: llms/dealersocket-llms.txt
-- type: Support
-  url: https://dealersocket.com/support/
-- type: Blog
-  url: https://dealersocket.com/resources/dealersocket-blog/
-- type: BlogRSS
-  url: https://dealersocket.com/feed/
-- type: TermsOfService
-  url: https://dealersocket.com/terms-conditions/
-- type: PrivacyPolicy
-  url: https://www.solera.com/privacy-center/
-- type: Login
-  url: https://www.dealer.solera.com/login/
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+
+
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: DealerSocket's integrations page names lead, customer, deal-push and CTI APIs but endpoints, auth and base URLs are released only to Solera/DealerSocket Certified Partners under contract; api.dealersocket.com answers 405 to an anonymous GET and no contract is served anywhere.
+  evidence:
+  - url: https://dealersocket.com
+    status: 200
+  - url: https://api.dealersocket.com/
+    status: 405
+  checked: '2026-10-20'
 x-enrichment:
-  date: '2026-08-10'
-  status: enriched
-  artifacts_added: 8
-  pass: local-v1
+  date: '2026-10-20'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v5

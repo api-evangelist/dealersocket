@@ -1,12 +1,10 @@
 generated: '2026-08-10'
 method: searched
 source: https://dealersocket.com/apis/
-note: >-
-  Cross-cutting request/response semantics for the DealerSocket partner
-  integration surface, assembled from the provider's own public integrations page
-  plus live probes of the production API host. DealerSocket publishes no API
-  reference, so most conventions below are recorded as UNDOCUMENTED rather than
-  guessed. Nothing here is inferred from a competitor or from a generic pattern.
+note: Cross-cutting request/response semantics for the DealerSocket partner integration surface, assembled
+  from the provider's own public integrations page plus live probes of the production API host. DealerSocket
+  publishes no API reference, so most conventions below are recorded as UNDOCUMENTED rather than guessed.
+  Nothing here is inferred from a competitor or from a generic pattern.
 surfaces:
   api_host: https://api.dealersocket.com
   api_host_evidence:
@@ -15,55 +13,46 @@ surfaces:
     server: Microsoft-IIS/8.5
     x_aspnet_version: 4.0.30319
     x_server: WEBAPI.us.slc.prod.dealersocket.net
-    note: >-
-      The host self-identifies as a production DealerSocket web-API tier. Root
-      answers 405 to GET with `Allow: POST,PUT`, which matches the documented
-      "direct post" shape of the inbound integrations. /crm/ exists (403); a
-      long tail of guessed resource paths returns 404, so no route surface can be
-      enumerated anonymously.
+    note: 'The host self-identifies as a production DealerSocket web-API tier. Root answers 405 to GET
+      with `Allow: POST,PUT`, which matches the documented "direct post" shape of the inbound integrations.
+      /crm/ exists (403); a long tail of guessed resource paths returns 404, so no route surface can be
+      enumerated anonymously.'
   public_docs: https://dealersocket.com/apis/
   developer_portal: null
   api_reference: null
 style:
   paradigm: REST-ish HTTP direct post
-  http_methods_observed: [POST, PUT]
-  note: >-
-    DealerSocket's own language is "Direct Post" (CTI Direct Post, Call Vendor
-    Direct Post). Inbound integrations are form/document POSTs to a partner-issued
-    endpoint rather than a resource-oriented CRUD API.
+  http_methods_observed:
+  - POST
+  - PUT
+  note: DealerSocket's own language is "Direct Post" (CTI Direct Post, Call Vendor Direct Post). Inbound
+    integrations are form/document POSTs to a partner-issued endpoint rather than a resource-oriented
+    CRUD API.
 media_types:
   request: unknown
   response: application/json
-  response_evidence: >-
-    api.dealersocket.com returns `application/json; charset=utf-8` on its ASP.NET
-    error envelopes.
+  response_evidence: api.dealersocket.com returns `application/json; charset=utf-8` on its ASP.NET error
+    envelopes.
   outbound_payload: XML or email
-  outbound_evidence: >-
-    "This lead data is forwarded as either XML or email." - Lead Forwarding
-    Service, https://dealersocket.com/apis/
+  outbound_evidence: '"This lead data is forwarded as either XML or email." - Lead Forwarding Service,
+    https://dealersocket.com/apis/'
 authentication:
   documented: false
   style: unknown
-  note: >-
-    No authentication reference is published anywhere - no API key scheme, no
-    OAuth endpoints, no OIDC discovery document (all /.well-known/ paths 404 on
-    every host). Credentials are issued through the Certified Partners program.
-    Because DealerSocket publishes nothing, NO Authentication pointer is emitted
-    in apis.yml - an artifact recording an absence must not be scored as a
-    published auth reference.
+  note: No authentication reference is published anywhere - no API key scheme, no OAuth endpoints, no
+    OIDC discovery document (all /.well-known/ paths 404 on every host). Credentials are issued through
+    the Certified Partners program. Because DealerSocket publishes nothing, NO Authentication pointer
+    is emitted in apis.yml - an artifact recording an absence must not be scored as a published auth reference.
 idempotency:
   supported: unknown
+  coverage: none
   header: null
-  scope: null
   retention: null
-  note: >-
-    No idempotency contract is documented and no Idempotency-Key parameter exists
-    in any spec (there is no spec). NO `Idempotency` pointer is emitted in
-    apis.yml. This matters for the surface DealerSocket actually ships: Deal Push
-    and the CTI/work-note direct posts are write operations against dealership
-    records, and a partner replaying a failed post has no published de-duplication
-    guarantee to rely on. This is a real gap for DealerSocket to close, not a
-    catalog gap.
+  note: 'No idempotency contract is documented and no Idempotency-Key parameter exists in any spec (there
+    is no spec). NO `Idempotency` pointer is emitted in apis.yml. This matters for the surface DealerSocket
+    actually ships: Deal Push and the CTI/work-note direct posts are write operations against dealership
+    records, and a partner replaying a failed post has no published de-duplication guarantee to rely on.
+    This is a real gap for DealerSocket to close, not a catalog gap.'
 pagination:
   style: unknown
   note: No list/collection operation is publicly documented, so no pagination contract exists to record.
@@ -74,10 +63,9 @@ metadata:
 request_tracing:
   request_id_header: null
   documented: false
-  observed: >-
-    Responses carry `X-Server` and `X-Box` headers naming the serving node
-    (WEBAPI.us.slc.prod.dealersocket.net / SLCWEBAPI20). These are infrastructure
-    identifiers, not a correlation id a partner can quote in a support ticket.
+  observed: Responses carry `X-Server` and `X-Box` headers naming the serving node (WEBAPI.us.slc.prod.dealersocket.net
+    / SLCWEBAPI20). These are infrastructure identifiers, not a correlation id a partner can quote in
+    a support ticket.
 versioning:
   scheme: unknown
   see: lifecycle/dealersocket-lifecycle.yml
@@ -90,11 +78,9 @@ error_envelope:
   - http_status: 500
     body: '{"Message":"An error has occurred."}'
   rfc9457: false
-  note: >-
-    The framework default envelope, not a documented error catalog. There is no
-    error-code registry, no `type` URI, and no remediation guidance published, so
-    no errors/ artifact is authored - deriving a catalog from two framework
-    strings would overstate what DealerSocket publishes.
+  note: The framework default envelope, not a documented error catalog. There is no error-code registry,
+    no `type` URI, and no remediation guidance published, so no errors/ artifact is authored - deriving
+    a catalog from two framework strings would overstate what DealerSocket publishes.
 rate_limits:
   see: rate-limits/dealersocket-rate-limits.yml
   documented: false
@@ -118,7 +104,11 @@ provider_gaps:
 x-evidence:
   fetched: '2026-08-10'
   urls:
-  - {url: 'https://dealersocket.com/apis/', status: 200}
-  - {url: 'https://api.dealersocket.com/', status: 405}
-  - {url: 'https://api.dealersocket.com/crm/', status: 403}
-  - {url: 'https://api.dealersocket.com/WorkNote', status: 500}
+  - url: https://dealersocket.com/apis/
+    status: 200
+  - url: https://api.dealersocket.com/
+    status: 405
+  - url: https://api.dealersocket.com/crm/
+    status: 403
+  - url: https://api.dealersocket.com/WorkNote
+    status: 500

@@ -1,6 +1,7 @@
 generated: '2026-08-10'
 method: searched
 source: https://dealersocket.com/apis/
+name: DealerSocket API Rate Limits
 limit_count: 0
 headers_documented: false
 exhaustion_status: null
