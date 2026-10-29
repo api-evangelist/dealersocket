@@ -1,4 +1,4 @@
-# DealerSocket (dealersocket)
+# DealerSocket
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,69 +64,110 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-DealerSocket is an automotive dealership CRM and Dealer Management System (DMS) software platform for franchise and independent auto dealers, covering customer relationship management, inventory management, websites, digital marketing, and desking/deals. DealerSocket is a **Solera company** (acquired 2021; part of Solera's Vehicle Solutions line of business).
+DealerSocket is an automotive dealership CRM and Dealer Management System (DMS) software platform for franchise and independent auto dealers, covering customer relationship management, inventory management, websites, digital marketing, and desking/deals. DealerSocket is a Solera company (acquired 2021; part of Solera's Vehicle Solutions line of business). DealerSocket exposes a set of inbound and outbound integration APIs - lead forwarding, deal push to the DMS, customer updates, activity and CTI/call logging - but access is not self-serve. It is delivered through DealerSocket's Certified Partners program (launched 2013, 500-plus integration points) and is application-, contract-, and certification-gated. There is no public developer portal, no published authentication reference, and no public endpoint or base-URL documentation; the logical APIs below are modeled from DealerSocket's public integrations page rather than a self-serve API reference.
 
-> **Access model: partner / certification-gated.** DealerSocket exposes inbound and outbound integration APIs, but access is **not self-serve**. Integrations are delivered through DealerSocket's **Certified Partners program** (launched 2013, with 500-plus integration points) and are application-, contract-, and certification-gated. There is **no public developer portal, no published authentication reference, and no public endpoint or base-URL documentation.** DealerSocket also participates in DMS third-party access programs (for example ADP's Third-Party Access Program at the Managed Bi-Directional Integration level). Pricing is enterprise/contract (contact sales). The logical APIs below are **modeled from DealerSocket's public integrations page** ([dealersocket.com/apis/](https://dealersocket.com/apis/)), not from a self-serve API reference, and are flagged `endpointsModeled` in `apis.yml`.
+**Areas:** Automotive · Dealership · CRM · DMS · Leads · Inventory · Deals · Solera · Partner API · Certified Partners
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/dealersocket/refs/heads/main/apis.yml)
+## DealerSocket on APIs.io
 
-## Tags
+Everything profiled for DealerSocket is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dealersocket/](https://apis.io/providers/dealersocket/)** — or go straight to one of the APIs or properties below.
 
-- Automotive
-- Dealership
-- CRM
-- DMS
-- Leads
-- Inventory
-- Deals
-- Solera
-- Partner API
-- Certified Partners
+### APIs (4)
 
-## Timestamps
+- [DealerSocket CRM & Leads API](https://apis.io/apis/dealersocket/dealersocket-crm-leads-api/) — Lead and CRM integration surface. Includes the outbound Lead Forwarding Service (forwards incoming and processed dealership lead data to a third-party…
+- [DealerSocket Customers API](https://apis.io/apis/dealersocket/dealersocket-customers-api/) — Inbound customer integration surface. The Customer Update integration modifies customer records in DealerSocket CRM (with insert of not-yet-found customers…
+- [DealerSocket Deals & Desking API](https://apis.io/apis/dealersocket/dealersocket-deals-api/) — Outbound deal integration surface. Deal Push Basic performs a one-way push of basic deal data (customer, co-buyer, salesperson, and vehicle of interest) to…
+- [DealerSocket CTI & Activity Logging API](https://apis.io/apis/dealersocket/dealersocket-cti-activity-api/) — Inbound call-tracking and activity-logging surface. CTI Direct Post logs inbound and outbound call information for activity tracking, Call Vendor Direct…
 
-- **Created:** 2026-07-10
-- **Modified:** 2026-07-10
+### Published properties
 
-## APIs (modeled)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### DealerSocket CRM & Leads API
+#### AsyncAPI (1)
 
-Lead and CRM integration surface: the outbound **Lead Forwarding Service** (forwards incoming and processed dealership lead data to a third-party vendor as XML or email), inbound **Activity Insert/Update** (create or update activity/to-do records such as calls, appointments, work notes, and web leads), and **EntitySync** (link website visitor data to existing customer records).
+Event-driven and webhook contracts.
 
-- **Human URL:** [https://dealersocket.com/apis/](https://dealersocket.com/apis/)
-- **Endpoints modeled** (partner-gated; endpoints/auth not public)
+- [Dealersocket Outbound Webhooks](https://apis.io/asyncapis/dealersocket/dealersocket-outbound-webhooks/)
 
-### DealerSocket Customers API
+#### Security (1)
 
-Inbound customer integration surface: the **Customer Update** integration modifies customer records in DealerSocket CRM (with insert of not-yet-found customers noted as forthcoming on the public integrations page).
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://dealersocket.com/apis/](https://dealersocket.com/apis/)
-- **Endpoints modeled** (partner-gated; endpoints/auth not public)
+- [Dealersocket Domain Security](https://apis.io/security/dealersocket/dealersocket-domain-security/)
 
-### DealerSocket Deals & Desking API
+#### Plans and pricing (1)
 
-Outbound deal integration surface: **Deal Push Basic** performs a one-way push of basic deal data (customer, co-buyer, salesperson, vehicle of interest) to the DMS, and **Deal Push Advanced** extends it with desking and financial information.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://dealersocket.com/apis/](https://dealersocket.com/apis/)
-- **Endpoints modeled** (partner-gated; endpoints/auth not public)
+- [Dealersocket Plans Pricing](https://apis.io/plans/dealersocket/dealersocket-plans-pricing/)
 
-### DealerSocket CTI & Activity Logging API
+#### Rate limits (1)
 
-Inbound call-tracking and activity-logging surface: **CTI Direct Post** (logs inbound/outbound call information), **Call Vendor Direct Post Work Note Update** (appends call follow-up data and transcripts), **Event Update** (updates sales and service event work notes), and **Work Note Insert** (appends notes to open events).
+Published request limits.
 
-- **Human URL:** [https://dealersocket.com/apis/](https://dealersocket.com/apis/)
-- **Endpoints modeled** (partner-gated; endpoints/auth not public)
+- [Dealersocket Rate Limits](https://apis.io/rate-limits/dealersocket/dealersocket-rate-limits/)
 
-## Common Properties
+## Where to find this API
 
-- [LinkedIn](https://www.linkedin.com/company/dealersocket)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://dealersocket.com)
-- [Documentation (Integrations)](https://dealersocket.com/apis/)
-- [Certified Partners](https://dealersocket.com/resources/certified-partners/)
-- [Parent Company (Solera)](https://www.solera.com/solutions/dealers/dealersocket/)
+- [Documentation](https://dealersocket.com/apis/)
+- [Support](https://dealersocket.com/support/)
+- [Blog](https://dealersocket.com/resources/dealersocket-blog/)
+- [Terms of service](https://dealersocket.com/terms-conditions/)
+- [Privacy policy](https://www.solera.com/privacy-center/)
+- [Status](https://status.dealersocket.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.5** — thin · rubric 0.24.0 · scored 2026-10-20
+
+| Facet | Score |
+|---|---|
+| Discoverability | 80.4 |
+| Contract quality | 39.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 27.6 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dealersocket/](https://apis.io/providers/dealersocket/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for DealerSocket: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dealersocket/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
